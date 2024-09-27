@@ -1,7 +1,7 @@
 import { Divider, Stack, Typography } from '@mui/material'
 import { Question } from '..'
 
-export const RenderQuestion = ({ id, question, description }: Question) => (
+export const QuestionBlock = ({ id, question, description }: Question) => (
   <Stack
     direction="row"
     spacing={1}

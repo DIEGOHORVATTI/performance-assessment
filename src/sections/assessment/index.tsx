@@ -4,7 +4,8 @@ import { Button, Divider, Grid2 as Grid, Stack, Typography } from '@mui/material
 import { styled } from '@mui/system'
 
 import { Logo, Iconify } from '@/components'
-import { RenderQuestion } from './components/RenderQuestion'
+import { QuestionBlock } from './components/QuestionBlock'
+import { SliderRequest } from './components/SliderRequest'
 
 export type Question = {
   id: number
@@ -33,13 +34,13 @@ export default function Assessment() {
 
       <Stack direction="column" spacing={4} divider={<DividerCustom />}>
         {mockQuestions.map(({ question, description, id }, index) => (
-          <Grid container spacing={2} key={index}>
+          <Grid container spacing={8} key={index}>
             <Grid size={{ xs: 12, md: 6 }}>
-              <RenderQuestion key={index} {...{ id, question, description }} />
+              <QuestionBlock key={index} {...{ id, question, description }} />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <RenderQuestion key={index} {...{ id, question, description }} />
+              <SliderRequest />
             </Grid>
           </Grid>
         ))}
