@@ -4,50 +4,32 @@ import { Button, Divider, Stack, Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
 import { Logo, Iconify } from '@/components'
+import { RenderQuestion } from './components/RenderQuestion'
 
-type Question = {
+export type Question = {
   id: number
   question: string
   description: string
 }
 
 export default function Assessment() {
-  const RenderQuestion = ({ id, question, description }: Question) => (
+  const headerEvaluation = (
     <Stack
       direction="row"
-      spacing={1}
-      alignItems="flex-start"
-      divider={
-        <Divider orientation="vertical" sx={{ backgroundColor: '#047835', width: 2, height: 50 }} />
-      }
+      alignItems="center"
+      sx={{ backgroundColor: '#e3e9db', borderBottom: '1px solid #047835', p: 1 }}
     >
-      <Typography variant="h6" color="#047835" fontWeight="bold">
-        {id}
+      <Logo width={25} height={25} />
+
+      <Typography variant="subtitle2" color="#047835" fontWeight="bold">
+        Avaliação de Performace
       </Typography>
-
-      <Stack direction="column" spacing={1}>
-        <Typography variant="body1" color="#047835" fontWeight="bold">
-          {question}
-        </Typography>
-
-        <Typography variant="body2">{description}</Typography>
-      </Stack>
     </Stack>
   )
 
   return (
     <Stack direction="column" spacing={4}>
-      <Stack
-        direction="row"
-        alignItems="center"
-        sx={{ backgroundColor: '#e3e9db', borderBottom: '1px solid #047835', p: 1 }}
-      >
-        <Logo width={25} height={25} />
-
-        <Typography variant="subtitle2" color="#047835" fontWeight="bold">
-          Avaliação de Performace
-        </Typography>
-      </Stack>
+      {headerEvaluation}
 
       <Stack direction="column" spacing={4} divider={<DividerCustom />}>
         {mockQuestions.map(({ question, description, id }, index) => (

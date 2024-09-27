@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material'
 
-import Assessment from '../sections/assessment'
+import Assessment from '@/sections/assessment'
 
 export default function Home() {
   return (
