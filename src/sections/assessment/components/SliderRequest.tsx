@@ -1,4 +1,5 @@
 import { Divider, Slider, Stack } from '@mui/material'
+import { Logo } from '@/components'
 
 export const SliderRequest = () => (
   <Stack
@@ -9,7 +10,14 @@ export const SliderRequest = () => (
       <Divider orientation="vertical" sx={{ backgroundColor: '#047835', width: 2, height: 50 }} />
     }
   >
+    <Logo width={50} height={50} fill="#1dc25a" />
+
     <Slider
+      marks
+      step={1}
+      min={1}
+      max={5}
+      defaultValue={5}
       sx={{
         color: '#047835',
         '& .MuiSlider-mark[data-index="0"], & .MuiSlider-mark[data-index="4"]': {
@@ -20,11 +28,6 @@ export const SliderRequest = () => (
           height: 10,
         },
       }}
-      defaultValue={5}
-      step={1}
-      marks
-      min={1}
-      max={5}
     />
   </Stack>
 )
