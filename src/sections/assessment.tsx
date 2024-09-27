@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material'
+import { Logo } from '../components/logo'
 
 export default function Assessment() {
   const mockQuestions = [
@@ -9,8 +10,16 @@ export default function Assessment() {
 
   return (
     <Stack direction="column">
-      <Stack direction="row" spacing={2}>
-        <Typography variant="subtitle2">Avaliação de Performace</Typography>
+      <Stack
+        direction="row"
+        alignItems="center"
+        sx={{ backgroundColor: '#e3e9db', borderBottom: '1px solid #047835', p: 1 }}
+      >
+        <Logo width={30} height={30} />
+
+        <Typography variant="h6" color="#047835" fontWeight="bold">
+          Avaliação de Performace
+        </Typography>
       </Stack>
 
       <Stack direction="column" spacing={2}>
