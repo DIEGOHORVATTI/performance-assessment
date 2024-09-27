@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Divider, Stack, Typography } from '@mui/material'
+import { Button, Divider, Grid2 as Grid, Stack, Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
 import { Logo, Iconify } from '@/components'
@@ -33,7 +33,15 @@ export default function Assessment() {
 
       <Stack direction="column" spacing={4} divider={<DividerCustom />}>
         {mockQuestions.map(({ question, description, id }, index) => (
-          <RenderQuestion key={index} {...{ id, question, description }} />
+          <Grid container spacing={2} key={index}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <RenderQuestion key={index} {...{ id, question, description }} />
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <RenderQuestion key={index} {...{ id, question, description }} />
+            </Grid>
+          </Grid>
         ))}
       </Stack>
 
