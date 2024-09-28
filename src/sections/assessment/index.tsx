@@ -34,7 +34,7 @@ export default function Assessment() {
       {headerEvaluation}
 
       <Box sx={{ pl: 2, pr: 5 }}>
-        <Stack direction="column" spacing={4} divider={<DividerCustom />}>
+        <Stack direction="column" spacing={6} divider={<DividerCustom />}>
           {mockQuestions.map(({ color, ...props }, index) => (
             <Grid container spacing={8} key={index}>
               <Grid size={{ xs: 12, md: 6 }}>
@@ -48,9 +48,9 @@ export default function Assessment() {
           ))}
         </Stack>
 
-        <DividerCustom />
+        <DividerCustom sx={{ my: 4 }} />
 
-        <Stack justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
+        <Stack justifyContent="center" alignItems="center">
           <Button
             variant="contained"
             color="primary"
