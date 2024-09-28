@@ -30,7 +30,7 @@ export default function Assessment() {
   )
 
   return (
-    <Stack direction="column" spacing={4}>
+    <Stack direction="column" spacing={4} pb={4}>
       {headerEvaluation}
 
       <Box sx={{ pl: 2, pr: 5 }}>

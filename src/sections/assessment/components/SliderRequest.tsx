@@ -1,4 +1,4 @@
-import { Divider, Stack } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { SliderCustom } from './SliderCustom'
 
 import { useRequestSWR } from '@/hooks/useRequest'
@@ -22,23 +22,27 @@ export const SliderRequest = ({ color }: Props) => {
 
   const [value, setValue] = useState<number>(0)
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChange = (_event: Event, newValue: number | number[]) => {
     setValue(newValue as number)
   }
 
-  console.log(launch)
-  console.log(value)
+  const getCurrentRange = (value: number) => {
+    return launch?.find((range) => value >= range.min && value <= range.max)
+  }
+
+  const currentRange = getCurrentRange(value)
 
   return (
-    <Stack
-      direction="row"
-      spacing={1}
-      alignItems="flex-start"
-      divider={
-        <Divider orientation="vertical" sx={{ backgroundColor: '#047835', width: 2, height: 50 }} />
-      }
-    >
+    <Stack direction="column" spacing={2}>
       <SliderCustom marks={mockMarks} value={value} onChange={handleChange} fill={color} />
+
+      <Typography gutterBottom variant="subtitle1" align="center" fontWeight="bold" color={color}>
+        <i>{currentRange?.title}</i>
+      </Typography>
+
+      <Typography variant="caption" align="center" color="text.secondary">
+        {currentRange?.subTitle}
+      </Typography>
     </Stack>
   )
 }

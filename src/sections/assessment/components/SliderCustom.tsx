@@ -17,11 +17,15 @@ import { styled } from '@mui/system'
 export const SliderCustom = styled(Slider)<{ fill: string }>(({ fill }) => ({
   color: 'white',
   height: 9,
+  // Hide labels numbers
+  '& .MuiSlider-markLabel': {
+    display: 'none',
+  },
   '& .MuiSlider-track': {
     color: fill,
   },
-  // Hide first and last marker
-  '& .MuiSlider-mark[data-index="0"], & .MuiSlider-mark[data-index="5"]': {
+  // Hide last marker
+  '& .MuiSlider-mark[data-index="5"]': {
     display: 'none',
   },
   // Maker divider
