@@ -1,7 +1,7 @@
 import { Divider, Stack } from '@mui/material'
 import { SliderCustom } from './SliderCustom'
 
-import { useRequestSWR } from '@/hooks/use-request'
+import { useRequestSWR } from '@/hooks/useRequest'
 
 type Props = {
   color: string
@@ -9,7 +9,7 @@ type Props = {
 
 export const SliderRequest = ({ color }: Props) => {
   const { data: launch, isLoading } = useRequestSWR<any>({
-    url: `/route`,
+    url: `/ranges`,
   })
 
   console.log(launch, isLoading)
