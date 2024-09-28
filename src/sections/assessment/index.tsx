@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Divider, Grid2 as Grid, Stack, Typography } from '@mui/material'
+import { Box, Button, Divider, Grid2 as Grid, Stack, Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
 import { Logo, Iconify } from '@/components'
@@ -32,37 +32,39 @@ export default function Assessment() {
     <Stack direction="column" spacing={4}>
       {headerEvaluation}
 
-      <Stack direction="column" spacing={4} divider={<DividerCustom />}>
-        {mockQuestions.map(({ question, description, id }, index) => (
-          <Grid container spacing={8} key={index}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <QuestionBlock key={index} {...{ id, question, description }} />
+      <Box sx={{ pl: 2, pr: 5 }}>
+        <Stack direction="column" spacing={4} divider={<DividerCustom />}>
+          {mockQuestions.map(({ question, description, id }, index) => (
+            <Grid container spacing={8} key={index}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <QuestionBlock key={index} {...{ id, question, description }} />
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 6 }}>
+                <SliderRequest />
+              </Grid>
             </Grid>
+          ))}
+        </Stack>
 
-            <Grid size={{ xs: 12, md: 6 }}>
-              <SliderRequest />
-            </Grid>
-          </Grid>
-        ))}
-      </Stack>
+        <DividerCustom />
 
-      <DividerCustom />
-
-      <Stack justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          endIcon={<Iconify icon="mdi:arrow-right" />}
-          sx={{
-            backgroundColor: '#1dc25a',
-            borderRadius: 2,
-            fontWeight: 'bold',
-            fontFamily: 'Arial',
-          }}
-        >
-          ENVIAR
-        </Button>
-      </Stack>
+        <Stack justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            endIcon={<Iconify icon="mdi:arrow-right" />}
+            sx={{
+              backgroundColor: '#1dc25a',
+              borderRadius: 2,
+              fontWeight: 'bold',
+              fontFamily: 'Arial',
+            }}
+          >
+            ENVIAR
+          </Button>
+        </Stack>
+      </Box>
     </Stack>
   )
 }
