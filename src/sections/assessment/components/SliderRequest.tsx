@@ -22,9 +22,7 @@ export const SliderRequest = ({ color }: Props) => {
 
   const [value, setValue] = useState<number>(0)
 
-  const handleChange = (_event: Event, newValue: number | number[]) => {
-    setValue(newValue as number)
-  }
+  const handleChange = (_event: Event, newValue: number | number[]) => setValue(newValue as number)
 
   const getCurrentRange = (value: number) => {
     return launch?.find((range) => value >= range.min && value <= range.max)
@@ -36,20 +34,30 @@ export const SliderRequest = ({ color }: Props) => {
     <Stack direction="column" spacing={2}>
       <SliderCustom marks={mockMarks} value={value} onChange={handleChange} fill={color} />
 
-      {isLoading ? (
-        <Skeleton sx={{ width: '100%' }} height={30} />
-      ) : (
-        <Typography gutterBottom variant="subtitle1" align="center" fontWeight="bold" color={color}>
-          <i>{currentRange?.title}</i>
-        </Typography>
+      {isLoading && (
+        <>
+          <Skeleton sx={{ width: '100%' }} height={30} />
+
+          <Skeleton sx={{ width: '100%' }} height={40} />
+        </>
       )}
 
-      {isLoading ? (
-        <Skeleton sx={{ width: '100%' }} height={40} />
-      ) : (
-        <Typography variant="caption" align="center" color="text.secondary" minHeight={40}>
-          {currentRange?.subTitle}
-        </Typography>
+      {!isLoading && (
+        <>
+          <Typography
+            gutterBottom
+            variant="subtitle1"
+            align="center"
+            fontWeight="bold"
+            color={color}
+          >
+            <i>{currentRange?.title}</i>
+          </Typography>
+
+          <Typography variant="caption" align="center" color="text.secondary" minHeight={40}>
+            {currentRange?.subTitle}
+          </Typography>
+        </>
       )}
     </Stack>
   )
