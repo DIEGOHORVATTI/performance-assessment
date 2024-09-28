@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Skeleton, Stack, Typography } from '@mui/material'
 import { SliderCustom } from './SliderCustom'
 
 import { useRequestSWR } from '@/hooks/useRequest'
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export const SliderRequest = ({ color }: Props) => {
-  const { data: launch } = useRequestSWR<Ranges>({ url: `/ranges` })
+  const { data: launch, isLoading } = useRequestSWR<Ranges>({ url: `/ranges` })
 
   const [value, setValue] = useState<number>(0)
 
@@ -36,13 +36,21 @@ export const SliderRequest = ({ color }: Props) => {
     <Stack direction="column" spacing={2}>
       <SliderCustom marks={mockMarks} value={value} onChange={handleChange} fill={color} />
 
-      <Typography gutterBottom variant="subtitle1" align="center" fontWeight="bold" color={color}>
-        <i>{currentRange?.title}</i>
-      </Typography>
+      {isLoading ? (
+        <Skeleton sx={{ width: '100%' }} height={30} />
+      ) : (
+        <Typography gutterBottom variant="subtitle1" align="center" fontWeight="bold" color={color}>
+          <i>{currentRange?.title}</i>
+        </Typography>
+      )}
 
-      <Typography variant="caption" align="center" color="text.secondary">
-        {currentRange?.subTitle}
-      </Typography>
+      {isLoading ? (
+        <Skeleton sx={{ width: '100%' }} height={40} />
+      ) : (
+        <Typography variant="caption" align="center" color="text.secondary" minHeight={40}>
+          {currentRange?.subTitle}
+        </Typography>
+      )}
     </Stack>
   )
 }

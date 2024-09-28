@@ -38,7 +38,7 @@ export default function Assessment() {
           {mockQuestions.map(({ color, ...props }, index) => (
             <Grid container key={index} spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
-                <QuestionBlock key={index} color={color} {...props} />
+                <QuestionBlock color={color} {...props} />
               </Grid>
 
               <Grid size={{ xs: 12, md: 6 }}>
