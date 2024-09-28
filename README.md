@@ -41,3 +41,5 @@ Você tem **3 dias** para otimizar e refatorar esse componente da melhor forma p
 Você tem **3 dias** para resolver este desafio. Faça o seu melhor para entregar um código limpo, eficiente e bem documentado!
 
 Boa sorte, e lembre-se: **o prazo está apertado, mas é possível entregar algo incrível**! 🚀
+
+![image](https://github.com/user-attachments/assets/367ae04d-0617-4536-ace1-ef327d958302)
