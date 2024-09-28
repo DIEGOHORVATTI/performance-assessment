@@ -1,6 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-
-export async function GET(_req: NextApiRequest, _res: NextApiResponse) {
+export async function GET(_req: Request, _res: Response) {
   // simulate delay
   await new Promise((resolve) => setTimeout(resolve, 100))
 
