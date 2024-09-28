@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export async function GET(_req: NextApiRequest, res: NextApiResponse) {
-  setTimeout(() => {
-    res.status(200).json(ranges)
-  }, 100)
+export async function GET(_req: NextApiRequest, _res: NextApiResponse) {
+  // simulate delay
+  await new Promise((resolve) => setTimeout(resolve, 100))
 
   return new Response(JSON.stringify(ranges))
 }

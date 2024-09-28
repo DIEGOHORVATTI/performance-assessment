@@ -36,7 +36,7 @@ export default function Assessment() {
       <Box sx={{ pl: 2, pr: 5 }}>
         <Stack direction="column" spacing={6} divider={<DividerCustom />}>
           {mockQuestions.map(({ color, ...props }, index) => (
-            <Grid container spacing={8} key={index}>
+            <Grid container key={index} spacing={8} alignItems="center">
               <Grid size={{ xs: 12, md: 6 }}>
                 <QuestionBlock key={index} color={color} {...props} />
               </Grid>

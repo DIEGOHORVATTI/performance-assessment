@@ -37,7 +37,7 @@ export const axios = axiosInstance.create({
   timeout: 60 * 1000, // 1 minute
   timeoutErrorMessage:
     'Tempo limite excedido. Verifique sua conexão com a internet e tente novamente.',
-  baseURL: '/',
+  baseURL: '/api',
 })
 
 axios.interceptors.response.use(

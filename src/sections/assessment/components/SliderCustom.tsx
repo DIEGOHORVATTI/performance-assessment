@@ -21,7 +21,7 @@ export const SliderCustom = styled(Slider)<{ fill: string }>(({ fill }) => ({
     color: fill,
   },
   // Hide first and last marker
-  '& .MuiSlider-mark[data-index="0"], & .MuiSlider-mark[data-index="4"]': {
+  '& .MuiSlider-mark[data-index="0"], & .MuiSlider-mark[data-index="5"]': {
     display: 'none',
   },
   // Maker divider
