@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "lint:fix": "bunx eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "prettier": "bunx prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
