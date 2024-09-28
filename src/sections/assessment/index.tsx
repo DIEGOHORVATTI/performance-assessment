@@ -9,6 +9,7 @@ import { SliderRequest } from './components/SliderRequest'
 
 export type Question = {
   id: number
+  color: string
   question: string
   description: string
 }
@@ -34,14 +35,14 @@ export default function Assessment() {
 
       <Box sx={{ pl: 2, pr: 5 }}>
         <Stack direction="column" spacing={4} divider={<DividerCustom />}>
-          {mockQuestions.map(({ question, description, id }, index) => (
+          {mockQuestions.map(({ color, ...props }, index) => (
             <Grid container spacing={8} key={index}>
               <Grid size={{ xs: 12, md: 6 }}>
-                <QuestionBlock key={index} {...{ id, question, description }} />
+                <QuestionBlock key={index} color={color} {...props} />
               </Grid>
 
               <Grid size={{ xs: 12, md: 6 }}>
-                <SliderRequest />
+                <SliderRequest color={color} />
               </Grid>
             </Grid>
           ))}
@@ -72,16 +73,19 @@ export default function Assessment() {
 const mockQuestions: Array<Question> = [
   {
     id: 1,
+    color: '#1dc25a',
     question: 'Como Avalia suas Entregas?',
     description: 'Avalie a qualidade e a quantidade de entregas realizadas.',
   },
   {
     id: 2,
+    color: '#469953',
     question: 'Como Avalia sua Motivação?',
     description: 'Avalie o nível de motivação e engajamento com o trabalho.',
   },
   {
     id: 3,
+    color: '#32743b',
     question: 'Como Avalia sua Resiliência?',
     description: 'Avalie a capacidade de lidar com adversidades e superar desafios.',
   },
